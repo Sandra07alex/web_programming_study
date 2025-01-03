@@ -1,0 +1,33 @@
+//onmouseover
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        img{
+            display: none;
+        }
+    </style>
+</head>
+<body onmouseover="showImage()">
+
+    <img id="sandra" src="./sandra.jpg" alt="simple image" height="100px" width="100px">
+
+    <p id="number"></p>
+    
+
+
+    <script>
+
+        function showImage(){
+            document.getElementById("sandra").style.display="block"
+        }
+        let x = "goodmorning";
+
+        document.getElementById("number").innerHTML = x.length; 
+    </script>
+</body>
+</html>

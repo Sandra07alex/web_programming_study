@@ -1,0 +1,227 @@
+//string math
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <center>
+        <h3>String Operations</h3>
+
+        <form action="">
+            <input type="text" id="the_text" placeholder="text here!">
+            <input type="number" id="the_value" placeholder="enter position">
+            <br><br>
+            <button onclick="string_1()">charAt()</button>
+            <button onclick="string_2()">charCodeAt()</button>
+            <br><br>
+
+            <button onclick="string_0()">length</button>
+
+            <br><br>
+            <!-- <button type="submit" onclick="hi" >charAt()</button>
+        <button type="submit" onclick="hi" >charCodeAt()</button> -->
+            <!-- <br><br> -->
+        </form>
+
+        <h3>cases</h3>
+
+        <form action="">
+            <input type="text" id="the_text_1" placeholder="text here!"> <br><br>
+
+            <button onclick="string_3()">UPPERCASE</button>
+            <button onclick="string_4()">lowercase</button>
+
+            <br><br>
+            <!-- <button type="submit" onclick="hi" >charAt()</button>
+        <button type="submit" onclick="hi" >charCodeAt()</button> -->
+            <!-- <br><br> -->
+        </form>
+
+        <h3>concat</h3>
+
+        <form action="">
+            <input type="text" id="the_text_2" placeholder="String_1">
+            <input type="text" id="the_text_3" placeholder="String_2">
+
+            <br><br>
+
+            <button onclick="string_5()">concat</button>
+
+            <br><br>
+
+        </form>
+
+
+
+        <h3>Math</h3>
+
+        <form action="">
+            <input type="number" id="the_text_4" placeholder="Enter a number"> <br><br>
+
+            <!-- <input type="number" id="the_text_5"> -->
+
+            <button onclick="math_1()">pi</button>
+            <button onclick="math_2()">sqrt</button>
+
+
+
+
+            <button onclick="math_3()">round</button>
+            <button onclick="math_4()">ceil</button>
+            <button onclick="math_5()">floor</button>
+            <button onclick="math_6()">trunc</button>
+            <button onclick="math_7()">sign</button>
+            <button onclick="math_8()">sqrt</button>
+            <button onclick="math_9()">abs</button>
+            <button onclick="math_13()">random</button>
+
+            <br><br>
+            <button onclick="math_10()">sin</button>
+            <button onclick="math_11()">cos</button>
+            <button onclick="math_12()">tan</button>
+
+
+
+
+            <br><br>
+
+        </form>
+
+    </center>
+
+    <script>
+
+        function string_0() {
+            text_1 = document.getElementById("the_text").value;
+            // value_1 = document.getElementById("the_value").value;
+
+            y = text_1.length;
+
+            window.alert(y)
+        }
+
+        function string_1() {
+            text_1 = document.getElementById("the_text").value;
+            value_1 = document.getElementById("the_value").value;
+
+            y = text_1.charAt(value_1);
+
+            window.alert(y)
+        }
+
+        function string_2() {
+            text_1 = document.getElementById("the_text").value;
+            value_1 = document.getElementById("the_value").value;
+
+            y = text_1.charCodeAt(value_1);
+
+            window.alert(y)
+        }
+
+        function string_3() {
+            text_1 = document.getElementById("the_text_1").value;
+
+            y = text_1.toUpperCase();
+
+            window.alert(y)
+        }
+
+        function string_4() {
+            text_1 = document.getElementById("the_text_1").value;
+
+            y = text_1.toLowerCase();
+
+            window.alert(y)
+        }
+
+        function string_5() {
+            text_1 = document.getElementById("the_text_2").value;
+            text_2 = document.getElementById("the_text_3").value;
+
+
+            y = text_1.concat(text_2);
+
+            window.alert(y)
+        }
+
+
+        function math_1() {
+            text_1 = document.getElementById("the_text_4").value;
+
+            window.alert(Math.PI);
+        }
+
+        function math_2() {
+            text_1 = document.getElementById("the_text_4").value;
+
+            window.alert(Math.SQRT25);
+        }
+
+        function math_3() {
+            text_1 = document.getElementById("the_text_4").value;
+
+            window.alert(Math.round(text_1));
+        }
+
+        function math_4() {
+            text_1 = document.getElementById("the_text_4").value;
+            window.alert(Math.ceil(text_1));
+        }
+
+        function math_5() {
+            text_1 = document.getElementById("the_text_4").value;
+            window.alert(Math.floor(text_1));
+        }
+
+        function math_6() {
+            text_1 = document.getElementById("the_text_4").value;
+            window.alert(Math.trunc(text_1));
+        }
+        function math_7() {
+            text_1 = document.getElementById("the_text_4").value;
+            window.alert(Math.sign(text_1));
+        }
+        function math_8() {
+            text_1 = document.getElementById("the_text_4").value;
+            window.alert(Math.sqrt(text_1));
+        }
+        function math_9() {
+            text_1 = document.getElementById("the_text_4").value;
+            window.alert(Math.abs(text_1));
+        }
+
+        function math_10() {
+            text_1 = document.getElementById("the_text_4").value;
+            y = (text_1 * Math.PI) / 180
+            window.alert(Math.sin(y));
+        }
+        function math_11() {
+            text_1 = document.getElementById("the_text_4").value;
+            y = (text_1 * Math.PI) / 180
+            window.alert(Math.cos(y));
+        }
+        function math_12() {
+            text_1 = document.getElementById("the_text_4").value;
+            y = (text_1 * Math.PI) / 180
+            window.alert(Math.tan(y));
+        }
+
+        function math_13() {
+            text_1 = document.getElementById("the_text_4").value;
+            y = (text_1 * Math.PI) / 180
+            window.alert(Math.random() * 10);
+        }
+
+
+
+    </script>
+
+</body>
+
+</html>

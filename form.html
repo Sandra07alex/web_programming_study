@@ -1,0 +1,156 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Registration - 123Jobs</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        header {
+            text-align: center;
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+        }
+        table {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            border-collapse: collapse;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        td, th {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        input[type="text"], input[type="email"], input[type="password"], textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        input[type="file"] {
+            padding: 5px;
+        }
+        input[type="checkbox"] {
+            margin-right: 10px;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        .form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 30px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>123Jobs.com - Profile Registration</h1>
+        <p>Welcome! Please fill in your profile details to apply for jobs.</p>
+    </header>
+
+    <div class="form-container">
+        <form action="/submit" method="POST" enctype="multipart/form-data">
+            <table>
+                <tr>
+                    <th colspan="2">Personal Information</th>
+                </tr>
+                <tr>
+                    <td>Name:</td>
+                    <td><input type="text" name="name" required></td>
+                </tr>
+                <tr>
+                    <td>Address:</td>
+                    <td><input type="text" name="address" required></td>
+                </tr>
+                <tr>
+                    <td>Phone:</td>
+                    <td><input type="text" name="phone" required></td>
+                </tr>
+                <tr>
+                    <td>Email:</td>
+                    <td><input type="email" name="email" required></td>
+                </tr>
+                <tr>
+                    <td>Profile Picture:</td>
+                    <td><input type="file" name="picture" accept="image/*" required></td>
+                </tr>
+                <tr>
+                    <th colspan="2">Education Details</th>
+                </tr>
+                <tr>
+                    <td>College:</td>
+                    <td><input type="text" name="college" required></td>
+                </tr>
+                <tr>
+                    <td>Branch:</td>
+                    <td><input type="text" name="branch" required></td>
+                </tr>
+                <tr>
+                    <th colspan="2">Personal History</th>
+                </tr>
+                <tr>
+                    <td>Favorite Theory Subject:</td>
+                    <td><input type="text" name="theory_subject" required></td>
+                </tr>
+                <tr>
+                    <td>Favorite Practical Subject:</td>
+                    <td><input type="text" name="practical_subject" required></td>
+                </tr>
+                <tr>
+                    <td>Username:</td>
+                    <td><input type="text" name="username" required></td>
+                </tr>
+                <tr>
+                    <td>Password:</td>
+                    <td><input type="password" name="password" required></td>
+                </tr>
+                <tr>
+                    <th colspan="2">Preferences</th>
+                </tr>
+                <tr>
+                    <td>Choose Your Favorite Subjects:</td>
+                    <td>
+                        <label><input type="checkbox" name="subjects[]" value="Data Structures"> Data Structures</label><br>
+                        <label><input type="checkbox" name="subjects[]" value="Algorithms"> Algorithms</label><br>
+                        <label><input type="checkbox" name="subjects[]" value="Database Management"> Database Management</label><br>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align:center;">
+                        <input type="submit" value="Submit Profile">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+
+</body>
+</html>

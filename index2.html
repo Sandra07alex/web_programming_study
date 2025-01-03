@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Salary Details</title>
+</head>
+<body>
+    <h2>Enter Employee Salary Details</h2>
+    <form action="process.php" method="post">
+        <label for="name">Employee Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="basic_pay">Basic Pay:</label>
+        <input type="number" id="basic_pay" name="basic_pay" step="0.01" required><br><br>
+
+        <label for="da">DA:</label>
+        <input type="number" id="da" name="da" step="0.01" required><br><br>
+
+        <label for="hra">HRA:</label>
+        <input type="number" id="hra" name="hra" step="0.01" required><br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

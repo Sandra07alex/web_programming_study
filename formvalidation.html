@@ -1,0 +1,70 @@
+<html>
+<head>
+<style>
+body{
+background-color:#C4DAD2;}
+
+
+
+</style>
+
+</head>
+
+<body> 
+<center>
+<h1><u>form Validation</u></h1><br>
+<form name="regform" onsubmit=validateform()>
+YourName   <input type="Text" name="name"><br><br>
+UserName    <input type="Text" name="uname"><br><br>
+Password  <input type="password" name="passwd"><br><br>
+RETYPE Password   <input type="password" name="repasswd"><br><br>
+PhoneNumber   <input type="Text" name="phnum"><br><br>       
+Email ID <input type="Text" name="email"><br><br>
+Destination <select name="destination">
+<option>Manger</option>
+<option>MD</option>
+<option>Officer</option>
+<option selected>Staff</option>
+</select><br><br>
+Gender <input type="radio" id="Male"name="gender">
+<label for="Male">Male</label> 
+<input type="radio" id="female"name="gender">
+<label for="Female">Female</label> <br><br>
+<input type="Submit">
+</form>
+</center>
+<script>
+name=document.regform.name.value;
+uname=documet.regform.uname.value;
+password=documet.regform.passwd.value;
+repasswd=documet.regform.repasswd.value;
+destination=documet.regform.destination.value;
+email=documet.regform.email.value;
+phnum=documet.regform.phnum.value;
+
+function validateform(){
+if(name==null || name==""){
+for(char in name){
+if!(char >='a' && char <='z'){ flag =1;}
+else if()
+}
+
+}
+
+
+
+}
+else{alert("IT MUST CONTAIN VALUES");}
+
+
+
+
+
+
+
+
+</script>
+
+</body>
+
+</html>

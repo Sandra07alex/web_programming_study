@@ -1,0 +1,207 @@
+//quiz
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>ONLINE QUIZ</title>
+        <link rel="stylesheet" href="exam.css">
+        <style>
+
+body{
+font-family:'Poppins',sans-serif;
+background:#EDDFE0;
+justify-content:center;
+
+}
+.container{
+width:450px;
+padding:20px;
+margin-top:80px;
+background-color:#B7B7B7;
+box-shadow:0 2px 4px rgba(0,0,0,0.1);
+border-radius:40px;
+}
+h1{
+text-align:center;
+}
+.question{
+font-weight:bold;
+margin-bottom:10px;
+}
+.options{
+margin-bottom:20px;
+background-color:#FAF7F0;
+text-align:left;
+}
+.option{
+display:block;
+margin-bottom:10px;
+}
+.button{
+dislay:inline-block;
+padding:10px 20px;
+background-color:#C1CFA1;
+color:#3B3030;
+border:none;
+cursor:pointer;
+font-size:16px;
+border-radius:10px;
+transition:background-color 0.3s;
+margin-right:10px;
+}
+.button:hover{
+background-color:#FFF0D1;
+}
+.result{
+text-align:center;
+margin-top:10px;
+font-weight:normal;
+}
+.hide{
+display:none;
+}
+        </style>
+    </head>
+    <body>
+        <center>
+        <div class="container">
+        <h1>QUIZ</h1>
+        <div id="quiz"></div>
+        <div id="result" class="result"></div>
+        <button id="submit" class="button">SUBMIT</button>
+        <button id="retry" class="buttonhide">RETRY</button>
+        <button id="showanswer" class="buttonhide">SHOW ANSWER</button>
+        </div>
+        </center>
+
+    <script src="quiz.js"></script>
+
+    <script>
+
+const quizData = [
+{question: 'Which HTML tag is used to create a hyperlink ?',
+options: ['link', 'href', 'a', 'hyperlink'],
+answer: 'a',},
+{question: 'Which of the following is not a web component element ?',
+options: ['shadow', 'menu', 'content', 'element'],
+answer: 'menu',},
+{question: 'Which of the following is a popular front-end framework for building user interfaces in JavaScript ?',
+options: ['django', 'angular', 'flask', 'node.js'],
+answer: 'angular',},
+{question: ' Which of the following CSS Property controls how an element is positioned ?',
+options: ['fix', 'set', 'static', 'position'],
+answer: 'position',}];
+
+const quizContainer = document.getElementById('quiz');
+const resultContainer = document.getElementById('result');
+const submitButton = document.getElementById('submit');
+const retryButton = document.getElementById('retry');
+const showAnswerButton = document.getElementById('showanswer');
+
+let currentQuestion = 0;
+let score = 0;
+let incorrectAnswers = [];
+displayQuestion();
+
+submitButton.addEventListener('click', checkAnswer);
+retryButton.addEventListener('click', retryQuiz);
+showAnswerButton.addEventListener('click', showAnswer);
+
+function displayQuestion() {
+
+
+retryButton.style.display = 'none';
+showAnswerButton.style.display = 'none';
+
+
+const questionData = quizData[currentQuestion];
+const questionElement = document.createElement('div');
+questionElement.className = 'question';
+questionElement.innerHTML = questionData.question;
+
+const optionsElement = document.createElement('div');
+optionsElement.className = 'options';
+const shuffledOptions = questionData.options;
+
+for (let i = 0; i < shuffledOptions.length; i++) {
+const option = document.createElement('div');
+option.className = 'option';
+const radio = document.createElement('input');
+radio.type = 'radio';
+radio.name = 'quiz';
+radio.value = shuffledOptions[i];
+
+const optionText = document.createTextNode(shuffledOptions[i]);
+option.appendChild(radio);
+option.appendChild(optionText);
+optionsElement.appendChild(option);}
+
+quizContainer.innerHTML = '';
+quizContainer.appendChild(questionElement);
+quizContainer.appendChild(optionsElement);}
+
+function checkAnswer() {
+const selectedOption = document.querySelector('input[name="quiz"]:checked');
+if (selectedOption) {
+const answer = selectedOption.value;
+if (answer === quizData[currentQuestion].answer) { 
+score++;
+} else {
+incorrectAnswers.push({
+question: quizData[currentQuestion].question,
+incorrectAnswer: answer,
+correctAnswer: quizData[currentQuestion].answer,});
+}
+currentQuestion++;
+selectedOption.checked = false;
+if (currentQuestion < quizData.length) {
+displayQuestion();
+} else {
+displayResult(); }}}
+
+function displayResult() {
+quizContainer.style.display = 'none';
+submitButton.style.display = 'none';
+resultContainer.innerHTML = `You scored ${score} out of ${quizData.length}!`; 
+retryButton.style.display = 'inline';
+showAnswerButton.style.display = 'inline';
+}
+
+function retryQuiz() {
+currentQuestion = 0;
+score = 0;
+incorrectAnswers = [];
+quizContainer.style.display = 'block';
+submitButton.style.display = 'inline';
+retryButton.style.display = 'none';
+showAnswerButton.style.display = 'none';
+resultContainer.innerHTML = '';
+displayQuestion();}
+
+function showAnswer() {
+quizContainer.style.display = 'none';
+submitButton.style.display = 'none';
+retryButton.style.display = 'inline';
+showAnswerButton.style.display = 'none';
+let incorrectAnswersHtml = '';
+for (let i = 0; i < incorrectAnswers.length; i++) {
+incorrectAnswersHtml += `
+<p>
+<b>QUESTION:</b>
+${incorrectAnswers[i].question}<br>
+<b>YOUR ANSWER:</b>
+${incorrectAnswers[i].incorrectAnswer}<br>
+<b>CORRECT ANSWER:</b>
+${incorrectAnswers[i].correctAnswer}
+</p>`;}
+
+resultContainer.innerHTML = `
+<p>You scored ${score} out of ${quizData.length}!</p>
+<p>INCORRECT ANSWERS:</p>
+${incorrectAnswersHtml}`;
+}
+
+
+    </script>
+    </body>
+</html>

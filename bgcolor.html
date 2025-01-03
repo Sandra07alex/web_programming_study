@@ -1,0 +1,28 @@
+//bg color
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        <button onclick="change__color()" style="justify-content: center;align-items: center;background-color: #c4c8ff;">Change!</button>
+    </center>
+    
+</body>
+
+<script>
+    function change__color(){
+        x = Math.random()*100
+        y = Math.random()*100
+        z = Math.random()*100
+
+        c = "rgb("+x+","+y+","+z+")"
+
+        document.body.style.backgroundColor = c
+    }
+</script>
+</html>
